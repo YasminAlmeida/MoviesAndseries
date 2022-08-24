@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import {} from './styles.js';
 
 const MovieOnline = axios.create({
   baseURL:
@@ -15,24 +16,19 @@ class Movies extends Component {
   }
   getMovies = async () => {
     const resposta = await MovieOnline.get();
-    // console.log(resposta);
-
     const AllFilmes = resposta.data.results.map((item) => {
       return {
         ...item,
         image: `https://image.tmdb.org/t/p/w500${item.poster_path}`,
-        // nome: item.original_title,
       };
     });
-    // console.log(AllFilmes);
     this.setState({
       movies: AllFilmes,
     });
-    // console.log(this.state.movies);
   };
   render() {
     return (
-      <div>
+      <section>
         <ul>
           {this.state.movies.map((item, index) => (
             <li key={index}>
@@ -45,9 +41,8 @@ class Movies extends Component {
             </li>
           ))}
         </ul>
-      </div>
+      </section>
     );
   }
 }
 export default Movies;
-//https://developers.themoviedb.org/3/movies/get-popular-movies
