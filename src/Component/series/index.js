@@ -1,14 +1,8 @@
 import React, { Component } from 'react';
-import Series from '../../Component/series/index.js';
 import { api } from '../../Services.js';
-import {
-  OptionsMovie,
-  Img,
-  Percent,
-  ContainerMovie,
-  InputSearch,
-} from './styles.js';
-class Movies extends Component {
+import { OptionsMovie, Img, Percent, ContainerMovie } from './styles.js';
+
+class Series extends Component {
   state = {
     movies: [],
   };
@@ -16,7 +10,7 @@ class Movies extends Component {
     this.getMovies();
   }
   getMovies = async () => {
-    const resposta = await api.get();
+    const resposta = await api.getbyseries();
     const AllFilmes = resposta.data.results.map((item) => {
       return {
         ...item,
@@ -30,11 +24,7 @@ class Movies extends Component {
   render() {
     return (
       <ContainerMovie>
-        <InputSearch>
-          <input type="text" />
-          <button>Search</button>
-        </InputSearch>
-        <h2>Movies</h2>
+        <h2>Series</h2>
         <OptionsMovie>
           <ul>
             {this.state.movies.map((item, index) => (
@@ -51,9 +41,8 @@ class Movies extends Component {
             ))}
           </ul>
         </OptionsMovie>
-        <Series />
       </ContainerMovie>
     );
   }
 }
-export default Movies;
+export default Series;

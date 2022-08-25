@@ -55,27 +55,3 @@ export const Percent = styled.div`
     font-size: 1em;
   }
 `;
-export const InputSearch = styled.div`
-  display: flex;
-  justify-content: center;
-  input {
-    border: 1px solid #eee;
-    display: block;
-    width: 80%;
-    font-size: 1rem;
-    padding: 0.8rem;
-    border-radius: 0.4rem;
-    background: #eee;
-    transition: 0.2s;
-  }
-  button {
-    cursor: pointer;
-    border: none;
-    border-radius: 4px;
-    background: #000;
-    color: #fff;
-    min-width: 8rem;
-    padding: 0.9rem 1rem;
-    font-size: 1rem;
-  }
-`;
